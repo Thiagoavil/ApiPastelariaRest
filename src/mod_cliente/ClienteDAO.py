@@ -4,9 +4,12 @@ from mod_cliente.Cliente import Cliente
 import db
 from mod_cliente.ClienteModel import ClienteDB
 
+# import da segurança
+from fastapi import Depends
+import security
 
-#Thiago Avila
-router = APIRouter()
+# dependências de forma global
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
 
 # Criar as rotas/endpoints: GET, POST, PUT, DELETE
 @router.get("/cliente/", tags=["Cliente"])

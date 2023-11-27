@@ -3,8 +3,14 @@ from mod_funcionario.Funcionario import Funcionario
 import db
 from mod_funcionario.FuncionarioModel import FuncionarioDB
 
+# import da segurança
+from fastapi import Depends
+import security
+
+# dependências de forma global
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
+
 #Thiago Avila
-router = APIRouter()
 
 # Criar as rotas/endpoints: GET, POST, PUT, DELETE
 

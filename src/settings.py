@@ -1,3 +1,4 @@
+from urllib.parse import quote # por causa do @ na senha...
 from dotenv import load_dotenv
 import os
 
@@ -8,6 +9,10 @@ load_dotenv(".env")
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
 RELOAD = os.getenv("RELOAD")
+
+# Configurações Segurança da API
+X_TOKEN = os.getenv("X_TOKEN")
+X_KEY = os.getenv("X_KEY")
 
 # Configurações banco de dados
 DB_SGDB = os.getenv("DB_SGDB")
