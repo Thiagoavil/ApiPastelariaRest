@@ -3,9 +3,10 @@ from settings import HOST, PORT, RELOAD
 
 #Thiago Avila
 # import das classes com as rotas/endpoints
-from mod_funcionario import FuncionarioDAO
+from mod_funcionario import FuncionarioDAO 
 from mod_cliente import ClienteDAO 
 from mod_produto import ProdutoDao
+from mod_funcionario import login
 
 app = FastAPI()
 
@@ -13,6 +14,7 @@ app = FastAPI()
 app.include_router(FuncionarioDAO.router)
 app.include_router(ClienteDAO.router)
 app.include_router(ProdutoDao.router)
+app.include_router(login.router)
 
 import db
 db.criaTabelas()
